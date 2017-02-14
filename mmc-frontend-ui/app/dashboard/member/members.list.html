@@ -1,0 +1,16 @@
+<div class="list">
+    <header class="child-header">Members</header>
+    <header class="list-header1">
+        <a class="btn btn-primary icon ion-plus-circled" ui-sref="dashboard.member.add">Add</a>
+        <div class="search-tab"><input type="search" ng-model="search" placeholder="search by text"></div>
+    </header>
+    <section class="list-container">
+        <div class="list-row row" ng-repeat="member in members | filter:search">
+            <div class="col col-2" ng-bind-html="member.email | highlight:search"></div>
+            <div class="col col-2" ng-bind-html="member.lastName +','+ member.firstName | highlight:search"></div>
+            <div class="col col-1 last-col">
+                <a class="icon ion-edit" ui-sref="dashboard.member.edit({ user : member.email })"></a><a class="icon ion-trash-b" ng-click="delete(member.email)"></a>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,50 @@
+<div class="form">
+    <header class="child-header"><span>Edit Member</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.member.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="info" class="form-label">User Information</label>
+    <form name="info" id="info">
+        <div class="form-row">
+            <div class="label">Username/Email</div>
+            <div><input type="text" ng-disabled="true" id="email" name="email" ng-model="memberClone.email"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">First name</div>
+            <div><input type="text"  id="fname" name="fname" ng-model="memberClone.firstName"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Last name</div>
+            <div><input type="text"  id="lname" name="lname" ng-model="memberClone.lastName"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Phone</div>
+            <div><input type="text"  id="phone" name="phone" ng-model="memberClone.phone"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Address</div>
+            <div><textarea type="text"  id="address" name="address" ng-model="memberClone.address"></textarea></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="Save" ng-click="save()"/>
+            <input type="submit" class="btn btn-primary btn-reset" value="Reset" ng-click="reset()"/>
+        </div>
+    </form>
+    <label for="info" class="form-label">Update password</label>
+    <form name="password" id="password">
+        <div class="form-row">
+            <div class="label">New passowrd</div>
+            <div><input type="text" ng-disabled="true" id="newpass" name="newpass"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Confirm password</div>
+            <div><input type="password"  id="oldpass" name="oldpass"></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="Save"/>
+            <input type="submit" class="btn btn-primary btn-reset" value="Reset"/>
+        </div>
+    </form>
+</div>

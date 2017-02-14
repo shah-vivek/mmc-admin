@@ -1,0 +1,22 @@
+// Clearfix
+.clear:before,
+.clear:after {
+	content: ' ';
+	display: table;
+}
+.clear:after {
+	clear: both;
+}
+
+// Main container
+.main-content {
+	max-width: 1048px;
+	margin: 0 auto;
+}
+html {
+    height: 100%;
+}
+body {
+    background-color: #305a73;
+    height: 100%;
+}

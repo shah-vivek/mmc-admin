@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahamandal Chicago</title>
+
+
+    <base href="/">
+
+    <!-- build:[href] app-@@BUILD_REV.min.css -->
+    <link rel="stylesheet" href="/assets/app.css" />
+    <!-- /build -->
+
+
+</head>
+<body>
+    <div ui-view class="main-content" role="main"></div>
+
+    <!-- build:js app-@@BUILD_REV.min.js -->
+    <script src="bower_components/requirejs/require.js"></script>
+    <script src="app/main.js"></script>
+    <!-- /build -->
+    <script>
+		require(['app']);
+	</script>
+</body>
+</html>

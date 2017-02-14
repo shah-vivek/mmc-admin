@@ -1,0 +1,51 @@
+<div class="form">
+    <header class="child-header"><span>Edit Album</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.album.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="imageUpload" class="form-label" ng-click="showUpload = !showUpload" ng-class="{ 'not-active': !showUpload}">Upload image</label>
+    <label for="imageUpload" class="form-label" ng-click="showUpload = !showUpload" ng-class="{ 'not-active': showUpload}">Rename album</label>
+    <form id="imageUpload" class="row">
+        <div ng-show="showUpload">
+            <div class="form-row">
+                <input type="file" class="custom-file-input" file-model="myFile">
+            </div>
+            <div class="form-row">
+                <input type="submit" value="upload" ng-disabled="!myFile" ng-click="uploadFile()" class="btn btn-primary btn-save">
+            </div>
+        </div>
+        <div ng-show="!showUpload" style="width:100%">
+            <div class="form-row">
+                <input type="text">
+            </div>
+            <div class="form-row">
+                <input type="submit" value="rename" ng-click="rename()" class="btn btn-primary btn-save">
+                <input type="submit" value="reset" ng-click="reset()" class="btn btn-primary btn-cancel">
+            </div>
+        </div>
+    </form>
+    <div >
+        <div class="container slider">
+
+            <img ng-repeat="image in images" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="data:image/png;base64,{{image}}" />
+
+            <a class="arrow prev"  ng-click="showPrev()"></a>
+
+            <a class="arrow next"  ng-click="showNext()"></a>
+
+        </div>
+
+
+    <ul class="nav">
+
+        <li ng-repeat="image in images" ng-class="{'active':isActive($index)}">
+
+            <img ng-src="data:image/png;base64,{{image}}"  ng-click="showPhoto($index);" />
+
+        </li>
+
+    </ul>
+    </div>
+</div>

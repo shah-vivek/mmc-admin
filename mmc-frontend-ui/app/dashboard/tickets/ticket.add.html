@@ -1,0 +1,39 @@
+<div class="form">
+    <header class="child-header"><span>Add Ticket</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.ticket.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="info" class="form-label">Ticket Information</label>
+    <form name="info" id="info">
+        <div class="form-row">
+            <div class="label">Ticket name</div>
+            <div><input type="text"  id="name" name="name" ng-model="ticket.ticketName"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Event for ticket</div>
+            <div>
+                <select ng-model="ticket.eventId">
+                    <option value="">Select</option>
+                    <option value="{{ event.eventId }}" ng-repeat="event in events">{{ event.eventName }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="label">Ticket Quantity </div>
+            <div><input type="text"  id="qty" name="qty" ng-model="ticket.quantity"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Ticket cost</div>
+            <div><input type="text"  id="cost" name="cost" ng-model="ticket.ticketPrice"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Ticket description</div>
+            <div><textarea type="text"  id="description" name="description" ng-model="ticket.ticketDesc"></textarea></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="add" ng-click="add()"/>
+        </div>
+    </form>
+</div>

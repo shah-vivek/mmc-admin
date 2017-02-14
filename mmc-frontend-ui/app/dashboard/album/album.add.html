@@ -1,0 +1,18 @@
+<div class="form">
+    <header class="child-header"><span>Add Album</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.album.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="info" class="form-label">Album information</label>
+    <form name="info" id="info">
+        <div class="form-row">
+            <div class="label">Album name</div>
+            <div><input type="text" ng-required id="name" name="name" ng-model="album.albumName"></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="Save" ng-click="addAlbum()" />
+        </div>
+    </form>
+</div>

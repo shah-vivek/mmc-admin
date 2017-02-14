@@ -1,0 +1,15 @@
+<div class="list">
+    <header class="child-header">Albums</header>
+    <header class="list-header1">
+        <a class="btn btn-primary icon ion-plus-circled" ui-sref="dashboard.album.add">Add</a>
+        <div class="search-tab"><input type="search" ></div>
+    </header>
+    <section class="list-container">
+        <div class="list-row row" ng-repeat="album in albums" id="{{ album.albumId }}">
+            <div class="col col-4">{{ album.albumName }}</div>
+            <div class="col col-2 last-col">
+                <a class="icon ion-edit" ui-sref="dashboard.album.edit({ id : album.albumId })"></a><a class="icon ion-trash-b"></a>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,30 @@
+<div class="form">
+    <header class="child-header"><span>Ad Advertisment</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.ad.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="info" class="form-label">Advertisement Information</label>
+    <form name="info" id="info">
+        <div class="form-row">
+            <div class="label">Ad name</div>
+            <div><input type="text"  id="name" name="name" ng-model="ad.title"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Ad Url </div>
+            <div><input type="text"  id="qty" name="qty" ng-model="ad.url"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Ad description</div>
+            <div><textarea type="text"  id="description" name="description" ng-model="ad.description"></textarea></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Ad Image</div>
+            <div><input type="file"  id="img" name="img" file-model="adImage"></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="add" ng-click="add()"/>
+        </div>
+    </form>
+</div>

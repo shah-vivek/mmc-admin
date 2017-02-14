@@ -1,0 +1,20 @@
+// Normalize CSS - https://necolas.github.io/normalize.css/
+@import 'globalSass/normalize';
+
+@import 'globalSass/base';
+
+@import 'login/login';
+
+@import 'dashboard/dashboard';
+
+@import 'header/header';
+
+@import 'dashboard/album/album';
+
+@import './../bower_components/Ionicons/scss/ionicons.scss';
+
+@import './../bower_components/pikaday/scss/pikaday.scss';
+
+@import url('./../bower_components/flatpickr/dist/flatpickr.min.css');
+
+@import url('./../bower_components/Ionicons/css/ionicons.min.css');

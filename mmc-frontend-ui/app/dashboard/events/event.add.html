@@ -1,0 +1,50 @@
+<div class="form">
+    <header class="child-header"><span>Add Event</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.event.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="info" class="form-label">Event Information</label>
+    <form name="info" id="info">
+        <div class="form-row">
+            <div class="label">Event name</div>
+            <div><input type="text"  id="name" name="name" ng-model="event.eventName"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Event type</div>
+            <div>
+                <select ng-model="event.eventType">
+                    <option value="">Select</option>
+                    <option value="internal">Internal event</option>
+                    <option value="external">External event</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row row">
+            <div class="col-2" style="margin-right:1rem;">
+                <div class="label">Event start</div>
+                <div><input type="text"  id="start" name="start" ng-model="event.eventStart"></div>
+            </div>
+            <div class="col-2" >
+                <div class="label">Event end</div>
+                <div><input type="text"  id="end" name="end" ng-model="event.eventEnd"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="label">Event venue</div>
+            <div><input type="text"  id="venue" name="venue" ng-model="event.eventVenue"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Event cost</div>
+            <div><input type="text"  id="cost" name="cost" ng-model="event.eventPrice"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Event description</div>
+            <div><textarea type="text"  id="description" name="description" ng-model="event.eventDescription"></textarea></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="add" ng-click="add()"/>
+        </div>
+    </form>
+</div>
