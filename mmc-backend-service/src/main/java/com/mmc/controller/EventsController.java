@@ -1,17 +1,25 @@
 package com.mmc.controller;
 
-import com.mmc.model.Event;
-import com.mmc.model.Response;
-import com.mmc.service.EventServiceImpl;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import com.mmc.model.Event;
+import com.mmc.model.Response;
+import com.mmc.service.EventServiceImpl;
 
 /**
  * Created by SGaurav on 06/12/2016.
@@ -20,10 +28,9 @@ import java.util.List;
 @RequestMapping(value = "/events")
 @CrossOrigin(origins = "*")
 public class EventsController {
-
     @Autowired
     private EventServiceImpl eventService;
-
+    
     private Response res = new Response();
 
     @RequestMapping(value = "/add",

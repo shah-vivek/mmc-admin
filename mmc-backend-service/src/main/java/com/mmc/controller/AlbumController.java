@@ -1,17 +1,28 @@
 package com.mmc.controller;
 
-import com.mmc.model.Album;
-import com.mmc.model.Response;
-import com.mmc.service.AlbumServiceImpl;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import com.mmc.entity.AlbumInfoEntity;
+import com.mmc.entity.AlbumYearEntity;
+import com.mmc.model.Album;
+import com.mmc.model.Response;
+import com.mmc.service.AlbumServiceImpl;
+
 /**
  * Created by SGaurav on 09/12/2016.
  */
@@ -20,83 +31,110 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class AlbumController {
 
-    @Autowired
-    private AlbumServiceImpl albumService;
+	@Autowired
+	private AlbumServiceImpl albumService;
 
+	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
+	public ResponseEntity<Response> add(@RequestBody Album album, HttpServletRequest request,
+			HttpServletResponse response) {
+		Response res = new Response();
+		try {
+			albumService.add(album);
+			res.setStatus("SUCCESS");
+			res.setStatusCode("S-200");
+			res.setStatusMsg("Added successfully!");
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		} catch (Exception e) {
+			res.setStatus("ERROR");
+			res.setStatusCode("E-200");
+			res.setStatusMsg(e.getMessage());
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		}
+	}
 
-    @RequestMapping(value = "",
-            method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public ResponseEntity<Response> add(@RequestBody Album album, HttpServletRequest request,
-                                               HttpServletResponse response) {
-        Response res = new Response();
-        try {
-            albumService.add(album);
-            res.setStatus("SUCCESS");
-            res.setStatusCode("S-200");
-            res.setStatusMsg("Added successfully!");
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }catch (Exception e){
-            res.setStatus("ERROR");
-            res.setStatusCode("E-200");
-            res.setStatusMsg(e.getMessage());
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }
-    }
+	@RequestMapping(value = "/rename", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
+	public ResponseEntity<Response> rename(@RequestBody Album album, HttpServletRequest request,
+			HttpServletResponse response) {
+		Response res = new Response();
+		try {
+			albumService.rename(album);
+			res.setStatus("SUCCESS");
+			res.setStatusCode("S-200");
+			res.setStatusMsg("Saved successfully!");
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		} catch (Exception e) {
+			res.setStatus("ERROR");
+			res.setStatusCode("E-200");
+			res.setStatusMsg(e.getMessage());
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		}
+	}
 
-    @RequestMapping(value = "/rename",
-            method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public ResponseEntity<Response> rename(@RequestBody Album album, HttpServletRequest request,
-                                        HttpServletResponse response) {
-        Response res = new Response();
-        try {
-            albumService.rename(album);
-            res.setStatus("SUCCESS");
-            res.setStatusCode("S-200");
-            res.setStatusMsg("Saved successfully!");
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }catch (Exception e){
-            res.setStatus("ERROR");
-            res.setStatusCode("E-200");
-            res.setStatusMsg(e.getMessage());
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }
-    }
+	@RequestMapping(value = "", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
+	public ResponseEntity<Response> delete(@RequestBody Album album, HttpServletRequest request,
+			HttpServletResponse response) {
+		Response res = new Response();
+		try {
+			albumService.delete(album);
+			res.setStatus("SUCCESS");
+			res.setStatusCode("S-200");
+			res.setStatusMsg("Deleted successfully!");
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		} catch (Exception e) {
+			res.setStatus("ERROR");
+			res.setStatusCode("E-200");
+			res.setStatusMsg(e.getMessage());
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		}
+	}
 
-    @RequestMapping(value = "",
-            method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public ResponseEntity<Response> delete(@RequestBody Album album, HttpServletRequest request,
-                                           HttpServletResponse response) {
-        Response res = new Response();
-        try {
-            albumService.delete(album);
-            res.setStatus("SUCCESS");
-            res.setStatusCode("S-200");
-            res.setStatusMsg("Deleted successfully!");
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }catch (Exception e){
-            res.setStatus("ERROR");
-            res.setStatusCode("E-200");
-            res.setStatusMsg(e.getMessage());
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }
-    }
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
+	public ResponseEntity<?> get(HttpServletRequest request, HttpServletResponse response) {
+		Response res = new Response();
+		try {
+			return new ResponseEntity<List<Album>>(albumService.get(), HttpStatus.OK);
+		} catch (Exception e) {
+			res.setStatus("ERROR");
+			res.setStatusCode("E-200");
+			res.setStatusMsg(e.getMessage());
+			return new ResponseEntity<Response>(res, HttpStatus.OK);
+		}
+	}
 
-    @RequestMapping(value = "",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public ResponseEntity<?> get( HttpServletRequest request,
-                                          HttpServletResponse response) {
-        Response res = new Response();
-        try {
-            return new ResponseEntity<List<Album>>(albumService.get(), HttpStatus.OK);
-        }catch (Exception e){
-            res.setStatus("ERROR");
-            res.setStatusCode("E-200");
-            res.setStatusMsg(e.getMessage());
-            return new ResponseEntity<Response>(res, HttpStatus.OK);
-        }
-    }
+	@RequestMapping(value = "/year/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
+	public ResponseEntity<?> getYearBasedAlbumList(HttpServletRequest request, HttpServletResponse response) {
+		Response res = new Response();
+
+		try {
+			return new ResponseEntity<List<AlbumYearEntity>>(albumService.getAlbumsInfo(), HttpStatus.OK);
+		} catch (Exception e) {
+			res.setStatus("ERROR");
+			res.setStatusCode("IE-500-list");
+			res.setStatusMsg(e.getMessage());
+			return new ResponseEntity<Response>(res, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+
+	@RequestMapping(value = "/{year}/{albumName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
+	public ResponseEntity<?> getAlbum(@PathVariable("albumName") String albumName,
+			@PathVariable("year") String year, HttpServletRequest request, HttpServletResponse response) {
+		Response res = new Response();
+
+		try {
+			return new ResponseEntity<AlbumInfoEntity>(albumService.getAlbumImagePaths(albumName, year), HttpStatus.OK);
+		} catch (Exception e) {
+			res.setStatus("ERROR");
+			res.setStatusCode("IE-500-list");
+			res.setStatusMsg(e.getMessage());
+			return new ResponseEntity<Response>(res, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
 }

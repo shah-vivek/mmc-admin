@@ -3,6 +3,7 @@ package com.mmc.config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.MultipartConfigFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -30,7 +31,11 @@ public class MmcApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(MmcApplication.class, args);
     }
-
+    
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(MmcApplication.class);
+    }
     @Bean
     public ObjectMapper defaultObjectMapper() {
         final ObjectMapper mapper = new ObjectMapper();
