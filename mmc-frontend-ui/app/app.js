@@ -15,7 +15,7 @@ define([
 	'./services/localStorage',
 
 	'./directives/FileModel',
-	'./directives/flatpickr.dir',
+	
 
 	'./filters/highlight'
 ], function ( ng ) {
@@ -34,8 +34,7 @@ define([
         'app.localStorage',
 
         'app.fileModel',
-		'app.flatpickr',
-        'app.highlight'
+		'app.highlight'
 	]);
 
 	ng.bootstrap( document, ['app'] );

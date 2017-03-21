@@ -64,7 +64,10 @@ define([
     './dashboard/advertisement/AdvertisementEditController',
     'text!./dashboard/advertisement/advertisement.edit.html',
     './dashboard/advertisement/AdvertisementAddController',
-    'text!./dashboard/advertisement/advertisement.add.html'
+    'text!./dashboard/advertisement/advertisement.add.html',
+
+    './dashboard/appHomePage/AppHomePageController',
+    'text!./dashboard/appHomePage/index.html',
 
 ], function (
 	ng,
@@ -130,7 +133,10 @@ define([
 	AdvertisementEditController,
 	advertisementEdit,
 	AdvertisementAddController,
-	advertisementAdd
+	advertisementAdd,
+
+    AppHomePageController,
+    appHomePageTemplate
 
 
 
@@ -333,7 +339,13 @@ define([
                      }
                  },
                  controller: AdvertisementEditController
-             });
+             })
+             .state('dashboard.appHomePage',{
+                 parent: 'dashboard',
+                 url: '/appHomePage',
+                 template: appHomePageTemplate,
+                 controller: AppHomePageController
+             })
 
 
 
