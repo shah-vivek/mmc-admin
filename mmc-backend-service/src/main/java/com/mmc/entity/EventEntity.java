@@ -41,8 +41,19 @@ public class EventEntity implements Serializable {
 
     @Column(name = "event_type")
     private String eventType;
+    
+    @Column(name = "event_ticket_url")
+    private String eventTicketsUrl;
 
-    public String getEventType() {
+    public String getEventTicketsUrl() {
+		return eventTicketsUrl;
+	}
+
+	public void setEventTicketsUrl(String eventTicketsUrl) {
+		this.eventTicketsUrl = eventTicketsUrl;
+	}
+
+	public String getEventType() {
         return eventType;
     }
 

@@ -8,6 +8,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import com.mmc.entity.AlbumCoverEntity;
 import com.mmc.entity.AlbumEntity;
 import com.mmc.entity.AlbumInfoEntity;
 import com.mmc.entity.AlbumYearEntity;
@@ -66,11 +68,14 @@ public class AlbumServiceImpl implements AlbumService{
 				AlbumYearEntity ae =  new AlbumYearEntity();
 				albumYearEntityList.add(ae);
 				ae.setYearNumber(yearDir.getName());
-				List<String> albumsList = new ArrayList<String>();
+				List<AlbumCoverEntity> albumsList = new ArrayList<AlbumCoverEntity>();
 				ae.setAlbumsList(albumsList);
 				for(File albumDir : yearDir.listFiles()){
 					if(albumDir.isDirectory()){
-						albumsList.add(albumDir.getName());
+						AlbumCoverEntity albumCoverEntity = new AlbumCoverEntity();
+						albumsList.add(albumCoverEntity);
+						albumCoverEntity.setName(albumDir.getName());
+						albumCoverEntity.setThumbnailPath(SERVER_IMAGE_PATH+'/'+yearDir.getName()+'/'+albumDir.getName()+"/thumbnail.jpg");
 					}
 				}
 			}

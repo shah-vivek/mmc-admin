@@ -47,6 +47,7 @@ public class EventServiceImpl implements EventService {
                 ) {
             events.add(new Event(event));
         }
+        System.out.println("Event date end : "+events.get(0).getEventEnd());
         System.out.println("Listing events ===================>" + events.toString());
         return events;
     }

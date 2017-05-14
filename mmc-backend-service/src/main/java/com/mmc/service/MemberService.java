@@ -1,5 +1,7 @@
 package com.mmc.service;
 
+import com.mmc.entity.PINVerifivationEntity;
+import com.mmc.entity.PasswordResetEntity;
 import com.mmc.model.*;
 
 import java.util.List;
@@ -21,4 +23,8 @@ public interface MemberService {
     void deleteMember(String email) throws Exception;
 
     String getPassword(GetPassword getPassword) throws Exception;
+    
+    public PINVerifivationEntity verifyPin(PINInfo pinInfo) throws Exception;
+
+	PasswordResetEntity resetPassword(PasswordResetInfo pri) throws Exception;
 }

@@ -1,16 +1,24 @@
 package com.mmc.service;
 
 
-import com.mmc.entity.MemberEntity;
-import com.mmc.entity.MemberEntityPK;
-import com.mmc.model.*;
-import com.mmc.repository.MemberRepository;
-import com.mmc.util.CryptUtil;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.mmc.entity.MemberEntity;
+import com.mmc.entity.MemberEntityPK;
+import com.mmc.entity.PINVerifivationEntity;
+import com.mmc.entity.PasswordResetEntity;
+import com.mmc.model.GetPassword;
+import com.mmc.model.MemberInfo;
+import com.mmc.model.PINInfo;
+import com.mmc.model.PasswordInfo;
+import com.mmc.model.PasswordResetInfo;
+import com.mmc.model.SignUpModel;
+import com.mmc.repository.MemberRepository;
+import com.mmc.util.CryptUtil;
 /**
  * Created by SGaurav on 05/12/2016.
  */
@@ -20,10 +28,7 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-    private CryptUtil cryptUtil = new CryptUtil();
-
     public boolean addMember(PasswordInfo passwordInfo) throws Exception{
-        System.out.println("Adding member ===================>" + passwordInfo.toString());
         MemberEntity member = memberRepository.findByEmail(passwordInfo.getEmail());
         if( member == null  ) {
 
@@ -33,7 +38,7 @@ public class MemberServiceImpl implements MemberService {
             memberEntityPK.setEmail(passwordInfo.getEmail());
 
             memberEntity.setMemberEntityPk(memberEntityPK);
-            memberEntity.setPass(cryptUtil.encrypt(passwordInfo.getPassword()));
+            memberEntity.setPass(CryptUtil.encrypt(passwordInfo.getPassword()));
             memberEntity.setMemberEntityPk(memberEntityPK);
             memberEntity.setRole("user");
             memberRepository.save(memberEntity);
@@ -44,7 +49,6 @@ public class MemberServiceImpl implements MemberService {
     }
 
     public boolean addMember(SignUpModel signUpModel) throws Exception{
-        System.out.println("Siginup member ===================>" + signUpModel.toString());
         MemberEntity member = memberRepository.findByEmail(signUpModel.getEmail());
         if( member == null  ) {
 
@@ -55,7 +59,7 @@ public class MemberServiceImpl implements MemberService {
             memberEntity.setFirstName(signUpModel.getFirstName());
             memberEntity.setLastName(signUpModel.getLastName());
             memberEntity.setMemberEntityPk(memberEntityPK);
-            memberEntity.setPass(cryptUtil.encrypt(signUpModel.getPass()));
+            memberEntity.setPass(CryptUtil.encrypt(signUpModel.getPass()));
             memberEntity.setRole("user");
             memberEntity.setMemberEntityPk(memberEntityPK);
             memberEntity.setPin(signUpModel.getPin());
@@ -68,7 +72,6 @@ public class MemberServiceImpl implements MemberService {
 
 
     public boolean updateMember(MemberInfo memberInfo) throws Exception {
-        System.out.println("Updating member ===================>" + memberInfo.toString());
         MemberEntity member = memberRepository.findByEmail(memberInfo.getEmail());
         if(member == null){
             return false;
@@ -90,17 +93,14 @@ public class MemberServiceImpl implements MemberService {
              ) {
             memberInfoList.add(new MemberInfo(member));
         }
-        System.out.println("Listing members ===================>" + memberInfoList.toString());
         return  memberInfoList;
     }
 
     public MemberInfo getMember(String email) throws Exception {
-        System.out.println("Querying member ===================>" + email);
         return new MemberInfo(memberRepository.findByEmail(email));
     }
 
     public void deleteMember(String email) throws Exception {
-        System.out.println("Deleting member ===================>" + email);
         memberRepository.delete(memberRepository.findByEmail(email));
     }
 
@@ -109,11 +109,43 @@ public class MemberServiceImpl implements MemberService {
         String password = null;
         if( memberEntity != null ) {
             if(memberEntity.getPin().equals(getPassword.getPin())) {
-                password = cryptUtil.decrypt(memberEntity.getPass());
+                password = CryptUtil.decrypt(memberEntity.getPass());
             } else {
                 password = "XXXX"; // It implicates pin is incorrect
             }
         }
         return password;
     }
+    @Override
+    public PINVerifivationEntity verifyPin(PINInfo pinInfo) throws Exception{
+        MemberEntity memberEntity  = memberRepository.findByEmail(pinInfo.getEmail());
+        PINVerifivationEntity pve = new PINVerifivationEntity();
+        if( memberEntity != null ) {
+            if(memberEntity.getPin().equals(pinInfo.getPin())) {
+            	pve.setPinVerified(true);
+            } else {
+            	pve.setPinVerified(false);
+            }
+        }
+        return pve;
+    }
+    
+    @Override
+    public PasswordResetEntity resetPassword(PasswordResetInfo pri) throws Exception{
+        MemberEntity memberEntity  = memberRepository.findByEmail(pri.getEmail());
+        
+        PasswordResetEntity pre = new PasswordResetEntity();
+        if( memberEntity != null ) {
+            if(memberEntity.getPin().equals(pri.getPin())) {
+            	pre.setPasswordReset(true);
+            	memberEntity.setPass(CryptUtil.encrypt(pri.getPassword()));
+            	memberRepository.save(memberEntity);
+            } else {
+            	pre.setPasswordReset(false);
+            }
+        }
+        return pre;
+    }
+    
+    
 }

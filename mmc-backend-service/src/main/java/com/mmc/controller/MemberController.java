@@ -1,5 +1,7 @@
 package com.mmc.controller;
 
+import com.mmc.entity.PINVerifivationEntity;
+import com.mmc.entity.PasswordResetEntity;
 import com.mmc.model.*;
 import com.mmc.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -195,6 +197,62 @@ public class MemberController {
                 return new ResponseEntity<Response>(res, HttpStatus.OK);
             }
             return new ResponseEntity<String>(password, HttpStatus.OK);
+        }catch (Exception e){
+            res.setStatus("ERROR");
+            res.setStatusCode("IE-500-add");
+            res.setStatusMsg(e.getMessage());
+            return new ResponseEntity<Response>(res, HttpStatus.OK);
+        }
+    }
+    
+    @RequestMapping(value = "/verify-pin",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public ResponseEntity<?> verifyPinAndEmailCombination(@RequestBody PINInfo pinInfo, HttpServletRequest request,
+                                           HttpServletResponse response) {
+
+        try {
+            PINVerifivationEntity pve = memberService.verifyPin(pinInfo);
+            if (pve.isPinVerified()) {
+                res.setStatus("SUCCESS");
+                res.setStatusCode("E-200");
+                res.setStatusMsg("Pin and Email Combination is verified");
+                    
+            } else {
+                res.setStatus("ERROR");
+                res.setStatusCode("E-200");
+                res.setStatusMsg("Email & PIN are not correct!");
+                
+            }
+            return new ResponseEntity<PINVerifivationEntity>(pve, HttpStatus.OK);
+        }catch (Exception e){
+            res.setStatus("ERROR");
+            res.setStatusCode("IE-500-add");
+            res.setStatusMsg(e.getMessage());
+            return new ResponseEntity<Response>(res, HttpStatus.OK);
+        }
+    }
+    
+    @RequestMapping(value = "/reset-password",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public ResponseEntity<?> resetPassword(@RequestBody PasswordResetInfo passwordResetInfo, HttpServletRequest request,
+                                           HttpServletResponse response) {
+
+        try {
+            PasswordResetEntity pre = memberService.resetPassword(passwordResetInfo);
+            if (pre.isPasswordReset()) {
+                res.setStatus("SUCCESS");
+                res.setStatusCode("E-200");
+                res.setStatusMsg("Password Reset Sucessfully");
+                    
+            } else {
+                res.setStatus("ERROR");
+                res.setStatusCode("E-200");
+                res.setStatusMsg("Oops something wnt wrong with your credentials! Please try again");
+                
+            }
+            return new ResponseEntity<PasswordResetEntity>(pre, HttpStatus.OK);
         }catch (Exception e){
             res.setStatus("ERROR");
             res.setStatusCode("IE-500-add");
