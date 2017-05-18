@@ -140,6 +140,7 @@ public class EventEntity implements Serializable {
         this.eventVenue = event.getEventVenue();
         this.eventPrice = event.getEventPrice();
         this.eventType = event.getEventType();
+        this.eventTicketsUrl = event.getEventTicketsUrl();
     }
 
     public EventEntity(){

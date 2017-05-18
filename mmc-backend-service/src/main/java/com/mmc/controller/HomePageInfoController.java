@@ -1,34 +1,23 @@
 package com.mmc.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.mmc.model.HomePageEventInfo;
+import com.mmc.model.Response;
+import com.mmc.service.HomePageEventInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.mmc.model.Event;
-import com.mmc.model.HomePageEventInfo;
-import com.mmc.model.Response;
-import com.mmc.service.EventServiceImpl;
-import com.mmc.service.HomePageEventInfoService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/events")
+@RequestMapping(value = "/homepage")
 @CrossOrigin(origins = "*")
 public class HomePageInfoController {
-    @Autowired
-    private EventServiceImpl eventService;
     
     @Autowired
     private HomePageEventInfoService homePageEventInfoService;
@@ -38,14 +27,14 @@ public class HomePageInfoController {
     @RequestMapping(value = "/add",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public ResponseEntity<Response> addEvent(@RequestBody Event event, HttpServletRequest request,
+    public ResponseEntity<Response> addEvent(@RequestBody HomePageEventInfo homePageEventInfo, HttpServletRequest request,
                                               HttpServletResponse response) {
 
         try {
-            eventService.addEvent(event);
+            homePageEventInfoService.addEvent(homePageEventInfo);
             res.setStatus("SUCCESS");
             res.setStatusCode("S-200");
-            res.setStatusMsg("Event added successfully!");
+            res.setStatusMsg("Homepage event added successfully!");
             return new ResponseEntity<Response>(res, HttpStatus.OK);
         }catch (Exception e){
             res.setStatus("ERROR");
@@ -65,10 +54,10 @@ public class HomePageInfoController {
 
 
         try{
-            eventService.deleteEvent(eventId);
+            homePageEventInfoService.deleteHomePageEventInfo(eventId);
             res.setStatus("SUCCESS");
             res.setStatusCode("S-200");
-            res.setStatusMsg("Event deleted sucessfully!");
+            res.setStatusMsg("Homepage event deleted sucessfully!");
             return new ResponseEntity<Response>(res, HttpStatus.OK);
         }catch (Exception e) {
             res.setStatus("ERROR");

@@ -1,13 +1,11 @@
 package com.mmc.model;
 
-import java.io.Serializable;
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mmc.entity.EventEntity;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by SGaurav on 06/12/2016.
@@ -22,20 +20,10 @@ public class Event implements Serializable {
     private String eventDescription;
     
     private String eventTicketsUrl;
-    
-    
-    public String getEventTicketsUrl() {
-		return eventTicketsUrl;
-	}
-
-	public void setEventTicketsUrl(String eventTicketsUrl) {
-		this.eventTicketsUrl = eventTicketsUrl;
-	}
 
 	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private Date eventStart;
-    
-    
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private Date eventEnd;
 
@@ -107,6 +95,14 @@ public class Event implements Serializable {
 
     public void setEventType(String eventType) {
         this.eventType = eventType;
+    }
+
+    public String getEventTicketsUrl() {
+        return eventTicketsUrl;
+    }
+
+    public void setEventTicketsUrl(String eventTicketsUrl) {
+        this.eventTicketsUrl = eventTicketsUrl;
     }
 
     public Event(EventEntity eventEntity) {

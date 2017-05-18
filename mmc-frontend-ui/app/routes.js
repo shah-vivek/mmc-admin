@@ -345,7 +345,7 @@ define([
                  url: '/appHomePage',
                  template: appHomePageTemplate,
                  controller: AppHomePageController
-             })
+             });
 
 
 

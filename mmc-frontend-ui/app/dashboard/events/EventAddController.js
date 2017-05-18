@@ -12,6 +12,7 @@ define([
 	function ( $scope ,  $location , eventService ) {
 
         $scope.event = {};
+
         $scope.add = function() {
             $scope.event.eventStart = moment($scope.event.eventStart).toJSON();
             $scope.event.eventEnd = moment($scope.event.eventEnd).toJSON();
