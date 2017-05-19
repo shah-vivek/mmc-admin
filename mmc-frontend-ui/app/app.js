@@ -17,7 +17,8 @@ define([
 	'./directives/FileModel',
 	
 
-	'./filters/highlight'
+	'./filters/highlight',
+	'wysiwyg'
 ], function ( ng ) {
 	'use strict';
 
@@ -34,7 +35,8 @@ define([
         'app.localStorage',
 
         'app.fileModel',
-		'app.highlight'
+		'app.highlight',
+		'ngWYSIWYG'
 	]);
 
 	ng.bootstrap( document, ['app'] );

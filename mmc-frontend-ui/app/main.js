@@ -12,7 +12,9 @@ requirejs.config({
 		'ngAnimate': '../bower_components/angular-animate/angular-animate',
 		'pikaday': '../bower_components/pikaday/pikaday',
 		'moment': '../bower_components/moment/moment',
-		'flatpickr': '../bower_components/flatpickr/dist/flatpickr.min'
+		'flatpickr': '../bower_components/flatpickr/dist/flatpickr.min',
+		'wysiwyg': '../bower_components/ngWYSIWYG/dist/wysiwyg.min',
+		'ngSanitize': '../bower_components/angular-sanitize/angular-sanitize',
 	},
 	shim: {
 		'angular': {
@@ -23,6 +25,12 @@ requirejs.config({
 		},
         'ngAnimate':{
          	deps: ['angular']
+        },
+        'ngSanitize': {
+        	deps: ['angular']
+        },
+        'wysiwyg': {
+        	deps: [ 'ngSanitize']
         }
 	}
 });
