@@ -12,6 +12,7 @@ define([
 	'./services/EventService',
 	'./services/TicketService',
 	'./services/AdvertisementService',
+	'./services/AppHomepageservice',
 	'./services/localStorage',
 
 	'./directives/FileModel',
@@ -32,6 +33,7 @@ define([
         'app.eventService',
         'app.ticketService',
         'app.advertisementService',
+        'app.appHomePageService',
         'app.localStorage',
 
         'app.fileModel',

@@ -5,10 +5,10 @@
         <div class="search-tab"><input type="search" ng-model="search"></div>
     </header>
     <section class="list-container">
-        <div class="list-row row" ng-repeat="event in events | filter:search">
-            <div class="col col-4" ng-bind-html="event.eventName | highlight:search"></div>
-            <div class="col col-2 last-col">
-                <a class="icon ion-edit" ui-sref="dashboard.appHomePage.edit({ id: event.eventId })"></a><a class="icon ion-trash-b"></a>
+        <div class="list-row row" ng-repeat="event in events ">
+            <div class="col col-5">
+                <a class="icon ion-edit" ui-sref="dashboard.appHomePage.edit({ id: event.homePageEventId })"></a><a class="icon ion-trash-b"></a>
+                <div ng-bind-html="event.content"></div>
             </div>
         </div>
     </section>

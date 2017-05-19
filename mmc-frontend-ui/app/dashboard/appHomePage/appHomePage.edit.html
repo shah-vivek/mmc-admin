@@ -9,15 +9,16 @@
     <form name="info" id="info">
         <div class="form-row">
             <div class="label">Event url</div>
-            <div><input type="text"  id="url" name="url" ng-model="event.imageUrl"></div>
+            <div><input type="text"  id="url" name="url" ng-model="eventClone.imageUrl"></div>
         </div>
         <div class="form-row">
             <div class="label">Event content</div>
-            <div><wysiwyg-edit type="text"  id="content" name="content" content="event.content"></wysiwyg-edit></div>
+            <div><wysiwyg-edit type="text"  id="content" name="content" content="eventClone.content"></wysiwyg-edit></div>
         </div>
         
         <div class="form-row">
             <input type="submit" class="btn btn-primary btn-save" value="add" ng-click="add()"/>
+             <input type="submit" class="btn btn-primary " value="reset" ng-click="reset()"/>
         </div>
     </form>
 </div>

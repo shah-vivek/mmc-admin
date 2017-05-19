@@ -4,15 +4,19 @@ define([
 	ng
 ) {
 	'use strict';
-	return [ '$scope' ,
-	function ( $scope ) {
-       $scope.uploadFiles = function(){
+	return [ '$scope' , 'appHomePageService' ,
+	function ( $scope , appHomePageService) {
 
-       }; 
 
-       console.log('home page'); 
+       var listSuccess = function(data) {
+       		$scope.events = data;
+       };
 
-       $scope.htmlVariable = '<p>Demo</p>';
+       var listError = function(data) {
+
+       };
+
+        appHomePageService.list().success( listSuccess ).error( listError );
 
 	}];
 });

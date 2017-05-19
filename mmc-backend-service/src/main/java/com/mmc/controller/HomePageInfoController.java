@@ -86,6 +86,43 @@ public class HomePageInfoController {
     }
 
 
+    @RequestMapping(value = "/get",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public ResponseEntity<?> getAllEvents( @RequestParam("eventId") String eventId, HttpServletRequest request,
+                                           HttpServletResponse response) {
+        try{
+            return new ResponseEntity<HomePageEventInfo>(homePageEventInfoService.getHomePageEventInfo(eventId), HttpStatus.OK);
+        }catch (Exception e) {
+            res.setStatus("ERROR");
+            res.setStatusCode("IE-500-get");
+            res.setStatusMsg(e.getMessage());
+            return new ResponseEntity<Response>(res, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @RequestMapping(value = "/update",
+            method = RequestMethod.PUT,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public ResponseEntity<?> getAllEvents( @RequestBody HomePageEventInfo homePageEventInfo, HttpServletRequest request,
+                                           HttpServletResponse response) {
+        try{
+            homePageEventInfoService.updateHomePageEventInfo(homePageEventInfo);
+            res.setStatus("SUCCESS");
+            res.setStatusCode("S-200");
+            res.setStatusMsg("Homepage event updated sucessfully!");
+            return new ResponseEntity<Response>(res, HttpStatus.OK);
+        }catch (Exception e) {
+            res.setStatus("ERROR");
+            res.setStatusCode("IE-500-delete");
+            res.setStatusMsg(e.getMessage());
+            return new ResponseEntity<Response>(res, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+
    
 
     

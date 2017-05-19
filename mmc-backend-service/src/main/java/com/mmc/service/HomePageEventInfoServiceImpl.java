@@ -1,15 +1,14 @@
 package com.mmc.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.mmc.entity.HomePageEventInfoEntity;
 import com.mmc.model.HomePageEventInfo;
 import com.mmc.repository.HomePageEventInfoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class HomePageEventInfoServiceImpl implements HomePageEventInfoService {
@@ -34,7 +33,9 @@ public class HomePageEventInfoServiceImpl implements HomePageEventInfoService {
 
 	@Override
 	public void updateHomePageEventInfo(HomePageEventInfo homePageEventInfo) throws Exception {
-		// TODO Auto-generated method stub
+		System.out.println("Updateing app hom epage " + homePageEventInfo);
+		HomePageEventInfoEntity homePageEventInfoEntity = new HomePageEventInfoEntity(homePageEventInfo);
+		homePageEventInfoRepository.save(homePageEventInfoEntity);
 
 	}
 
@@ -52,8 +53,9 @@ public class HomePageEventInfoServiceImpl implements HomePageEventInfoService {
 
 	@Override
 	public HomePageEventInfo getHomePageEventInfo(String homePageEventInfoId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		HomePageEventInfoEntity homePageEventInfoEntity = homePageEventInfoRepository.findOne(homePageEventInfoId);
+		System.out.println("Found home page event =====>" + homePageEventInfoEntity);
+		return new HomePageEventInfo(homePageEventInfoEntity);
 	}
 
 }

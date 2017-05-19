@@ -10,25 +10,15 @@ define([
 	return advertisementService.factory( 'appHomePageService', ['$http',  function ( $http ) {
 
 		// Adding a dev url for local, comment out in index.html before deployment!
-		var url = 'http://localhost:8081/appHomePage';
+		var url = 'http://localhost:8082/homepage';
 
 		return {
-			add: function ( image , ad ) {
-                            var fd = new FormData();
-                    		fd.append('file', image);
-                    		fd.append('title', ad.title);
-                    		fd.append('url', ad.url );
-                    		fd.append('description', ad.description);
-                            return $http.post(url+"/add", fd, {
-                    			transformRequest : ng.identity,
-                    			headers : {
-                    				'Content-Type' : undefined
-                    			}
-                    		});
+			add: function ( event ) {
+                 return $http.post( url+'/add' , event);
 			},
 
-			update: function ( ad ) {
-               	return $http.put( url+'/update', ad );
+			update: function ( event ) {
+               	return $http.put( url+'/update', event );
             },
 
 			list: function() {
@@ -36,11 +26,11 @@ define([
 			},
 
 			get: function( id ) {
-			    return $http.get( url+'/get?id='+id );
+			    return $http.get( url+'/get?eventId='+id );
 			},
 
 			delete: function( id ) {
-            	return $http.delete( url+'/delete?id='+id );
+            	return $http.delete( url+'/delete?eventId='+id );
             }
 
 		};

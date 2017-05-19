@@ -10,7 +10,7 @@ define([
 	return loginService.factory( 'loginService', ['$http',  function ( $http ) {
 
 		// Adding a dev url for local, comment out in index.html before deployment!
-		var url = 'http://localhost:8081/login/admin';
+		var url = 'http://localhost:8082/login/admin';
 
 		return {
 			login: function ( loginData ) {
