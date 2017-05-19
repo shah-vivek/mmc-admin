@@ -68,6 +68,12 @@ define([
 
     './dashboard/appHomePage/AppHomePageController',
     'text!./dashboard/appHomePage/index.html',
+    './dashboard/appHomePage/AppHomePageListController',
+    'text!./dashboard/appHomePage/appHomePage.list.html',
+    './dashboard/appHomePage/AppHomePageEditController',
+    'text!./dashboard/appHomePage/appHomePage.edit.html',
+    './dashboard/appHomePage/AppHomePageAddController',
+    'text!./dashboard/appHomePage/appHomePage.add.html'
 
 ], function (
 	ng,
@@ -136,7 +142,13 @@ define([
 	advertisementAdd,
 
     AppHomePageController,
-    appHomePageTemplate
+    appHomePageTemplate,
+    AppHomePageListController,
+    appHomePageListTemplate,
+    AppHomePageEditController,
+    appHomePageEditTemplate,
+    AppHomePageAddController,
+    appHomePageAddTemplate
 
 
 
@@ -345,6 +357,28 @@ define([
                  url: '/appHomePage',
                  template: appHomePageTemplate,
                  controller: AppHomePageController
+             })
+             .state('dashboard.appHomePage.list',{
+                parent: 'dashboard.appHomePage',
+                url: '/list',
+                controller: AppHomePageListController,
+                template: appHomePageListTemplate
+             }).state('dashboard.appHomePage.add',{
+                parent: 'dashboard.appHomePage',
+                url: '/add',
+                controller: AppHomePageAddController,
+                template: appHomePageAddTemplate
+             }).state('dashboard.appHomePage.edit',{
+                 parent: 'dashboard.appHomePage',
+                 url: '/edit/:id',
+                 template: appHomePageEditTemplate,
+                 params: {
+                     id: {
+                         value: null,
+                         squash: true
+                     }
+                 },
+                 controller: AppHomePageEditController
              });
 
 
