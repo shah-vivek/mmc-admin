@@ -10,7 +10,7 @@ define([
 	return eventService.factory( 'eventService', ['$http',  function ( $http ) {
 
 		// Adding a dev url for local, comment out in index.html before deployment!
-		var url = 'http://localhost:8082/events';
+		var url = 'http://www.mahamandalchicagomobile.org/mmc_ver_2/events';
 
 		return {
 			list: function (  ) {
@@ -27,7 +27,11 @@ define([
 
 			add: function( event ) {
 			    return $http.post( url+'/add' , event );
-			}
+			},
+
+			delete: function( eventId ) {
+			    return $http.delete( url+'/delete?eventId='+eventId , event );
+			},
 		};
 	}]);
 });

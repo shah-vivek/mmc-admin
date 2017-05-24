@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/homepage")
+@RequestMapping(value = "/home_page")
 @CrossOrigin(origins = "*")
 public class HomePageInfoController {
     

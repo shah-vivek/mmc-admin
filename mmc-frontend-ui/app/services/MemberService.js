@@ -10,7 +10,7 @@ define([
 	return memberService.factory( 'memberService', ['$http',  function ( $http ) {
 
 		// Adding a dev url for local, comment out in index.html before deployment!
-		var url = 'http://localhost:8082/members';
+		var url = 'http://www.mahamandalchicagomobile.org/mmc_ver_2/members';
 
 		return {
 			add: function ( member ) {
