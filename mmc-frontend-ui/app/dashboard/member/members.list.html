@@ -9,7 +9,7 @@
             <div class="col col-2" ng-bind-html="member.email | highlight:search"></div>
             <div class="col col-2" ng-bind-html="member.lastName +','+ member.firstName | highlight:search"></div>
             <div class="col col-1 last-col">
-                <a class="icon ion-edit" ui-sref="dashboard.member.edit({ user : member.email })"></a><a class="icon ion-trash-b" ng-click="delete(member.email)"></a>
+                <a class="icon ion-edit" ui-sref="dashboard.member.edit({ user : member.email })">edit</a><a class="icon ion-trash-b" ng-click="delete(member.email)">delete</a>
             </div>
         </div>
     </section>

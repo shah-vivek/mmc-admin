@@ -8,7 +8,7 @@
         <div class="list-row row" ng-repeat="event in events | filter:search">
             <div class="col col-4" ng-bind-html="event.eventName | highlight:search"></div>
             <div class="col col-2 last-col">
-                <a class="icon ion-edit" ui-sref="dashboard.event.edit({ id: event.eventId })"></a><a class="icon ion-trash-b" ng-click="delete( event )"></a>
+                <a class="icon ion-edit" ui-sref="dashboard.event.edit({ id: event.eventId })">edit</a><a class="icon ion-trash-b" ng-click="delete( event )">delete</a>
             </div>
         </div>
     </section>
