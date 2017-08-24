@@ -34,7 +34,7 @@ public class AlbumController {
 	private AlbumServiceImpl albumService;
 
 	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+			+ ";charset=UTF-8")
 	public ResponseEntity<Response> add(@RequestBody Album album, HttpServletRequest request,
 			HttpServletResponse response) {
 		Response res = new Response();
@@ -53,7 +53,7 @@ public class AlbumController {
 	}
 
 	@RequestMapping(value = "/rename", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+			+ ";charset=UTF-8")
 	public ResponseEntity<Response> rename(@RequestBody Album album, HttpServletRequest request,
 			HttpServletResponse response) {
 		Response res = new Response();
@@ -72,7 +72,7 @@ public class AlbumController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+			+ ";charset=UTF-8")
 	public ResponseEntity<Response> delete(@RequestBody Album album, HttpServletRequest request,
 			HttpServletResponse response) {
 		Response res = new Response();
@@ -91,7 +91,7 @@ public class AlbumController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+			+ ";charset=UTF-8")
 	public ResponseEntity<?> get(HttpServletRequest request, HttpServletResponse response) {
 		Response res = new Response();
 		try {
@@ -105,7 +105,7 @@ public class AlbumController {
 	}
 
 	@RequestMapping(value = "/year/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+			+ ";charset=UTF-8")
 	public ResponseEntity<?> getYearBasedAlbumList(HttpServletRequest request, HttpServletResponse response) {
 		Response res = new Response();
 
@@ -121,7 +121,7 @@ public class AlbumController {
 	}
 
 	@RequestMapping(value = "/{year}/{albumName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+			+ ";charset=UTF-8")
 	public ResponseEntity<?> getAlbum(@PathVariable("albumName") String albumName,
 			@PathVariable("year") String year, HttpServletRequest request, HttpServletResponse response) {
 		Response res = new Response();

@@ -28,7 +28,7 @@ public class MessageController {
 
     @RequestMapping(value="/send",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> sendMessage(@RequestBody Message message , HttpServletRequest request,
                                 HttpServletResponse response) {
         try{
@@ -48,7 +48,7 @@ public class MessageController {
 
     @RequestMapping(value="",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> list(HttpServletRequest request,
                                   HttpServletResponse response) {
         try{

@@ -27,7 +27,7 @@ public class MembershipTypeController {
 
     @RequestMapping(value = "",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> add(@RequestBody MembershipType membershipType, HttpServletRequest request,
                                         HttpServletResponse response) {
         Response res = new Response();
@@ -47,7 +47,7 @@ public class MembershipTypeController {
 
     @RequestMapping(value = "",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> delete(@RequestBody MembershipType membershipType, HttpServletRequest request,
                                         HttpServletResponse response) {
         Response res = new Response();
@@ -67,7 +67,7 @@ public class MembershipTypeController {
 
     @RequestMapping(value = "",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> delete( HttpServletRequest request,
                                            HttpServletResponse response) {
         Response res = new Response();

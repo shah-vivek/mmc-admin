@@ -30,7 +30,7 @@ public class AdvertisementController {
 
     @RequestMapping(value = "/add",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> add(@RequestParam(value="file", required=true) MultipartFile file ,
                                         @RequestParam(value="title", required=true) String title,
                                         @RequestParam(value="url", required=true) String url,
@@ -55,7 +55,7 @@ public class AdvertisementController {
 
     @RequestMapping(value = "/update",
             method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> update(@RequestParam(value="file", required=true) MultipartFile file ,
                                            @RequestParam(value="title", required=true) String title,
                                            @RequestParam(value="url", required=true) String url,
@@ -80,7 +80,7 @@ public class AdvertisementController {
 
     @RequestMapping(value = "/delete",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> delete(@RequestParam String id, HttpServletRequest request,
                                            HttpServletResponse response) {
         Response res = new Response();
@@ -101,7 +101,7 @@ public class AdvertisementController {
 
     @RequestMapping(value = "/list",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> list(HttpServletRequest request,
                                            HttpServletResponse response) {
         Response res = new Response();
@@ -118,7 +118,7 @@ public class AdvertisementController {
 
     @RequestMapping(value = "/get",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> get(@RequestParam String id, HttpServletRequest request,
                                     HttpServletResponse response) {
         Response res = new Response();

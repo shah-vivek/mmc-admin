@@ -26,7 +26,7 @@ public class HomePageInfoController {
 
     @RequestMapping(value = "/add",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> addEvent(@RequestBody HomePageEventInfo homePageEventInfo, HttpServletRequest request,
                                               HttpServletResponse response) {
 
@@ -48,7 +48,7 @@ public class HomePageInfoController {
 
     @RequestMapping(value = "/delete",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> deleteEvent(@RequestParam("eventId") String eventId, HttpServletRequest request,
                                           HttpServletResponse response) {
 
@@ -71,7 +71,7 @@ public class HomePageInfoController {
 
     @RequestMapping(value = "/list",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getAllEvents( HttpServletRequest request,
                                             HttpServletResponse response) {
         try{
@@ -88,7 +88,7 @@ public class HomePageInfoController {
 
     @RequestMapping(value = "/get",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getAllEvents( @RequestParam("eventId") String eventId, HttpServletRequest request,
                                            HttpServletResponse response) {
         try{
@@ -104,7 +104,7 @@ public class HomePageInfoController {
 
     @RequestMapping(value = "/update",
             method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getAllEvents( @RequestBody HomePageEventInfo homePageEventInfo, HttpServletRequest request,
                                            HttpServletResponse response) {
         try{

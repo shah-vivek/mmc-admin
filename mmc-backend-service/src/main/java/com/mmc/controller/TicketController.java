@@ -30,7 +30,7 @@ public class TicketController {
 
     @RequestMapping(value = "/add",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> addTicket(@RequestBody Ticket ticket, HttpServletRequest request,
                                              HttpServletResponse response) {
 
@@ -52,7 +52,7 @@ public class TicketController {
 
     @RequestMapping(value = "/update",
             method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> updateTicket(@RequestBody Ticket ticket, HttpServletRequest request,
                                               HttpServletResponse response) {
 
@@ -74,7 +74,7 @@ public class TicketController {
 
     @RequestMapping(value = "/delete",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> deleteTicket(@RequestParam("ticketId") String ticketId, HttpServletRequest request,
                                                  HttpServletResponse response) {
 
@@ -96,7 +96,7 @@ public class TicketController {
 
     @RequestMapping(value = "/get",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getMember(@RequestParam("ticketId") String ticketId, HttpServletRequest request,
                                        HttpServletResponse response) {
 
@@ -122,7 +122,7 @@ public class TicketController {
 
     @RequestMapping(value = "/list",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> listTicket( HttpServletRequest request,
                                                  HttpServletResponse response) {
 

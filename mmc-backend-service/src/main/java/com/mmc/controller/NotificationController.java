@@ -29,7 +29,7 @@ public class NotificationController {
 
     @RequestMapping(value = "/add",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> add(@RequestBody Notification notification, HttpServletRequest request,
                                         HttpServletResponse response) {
         try {
@@ -48,7 +48,7 @@ public class NotificationController {
 
     @RequestMapping(value = "/update",
             method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> update(@RequestBody Notification notification, HttpServletRequest request,
                                         HttpServletResponse response) {
         try {
@@ -67,7 +67,7 @@ public class NotificationController {
 
     @RequestMapping(value = "/list",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> update( HttpServletRequest request,
                                            HttpServletResponse response) {
         try {
@@ -82,7 +82,7 @@ public class NotificationController {
 
     @RequestMapping(value = "/get",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> get(@RequestParam String id , HttpServletRequest request,
                                      HttpServletResponse response) {
         try {
@@ -97,7 +97,7 @@ public class NotificationController {
 
     @RequestMapping(value = "/delete",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> delete(@RequestParam String id , HttpServletRequest request,
                                  HttpServletResponse response) {
         try {

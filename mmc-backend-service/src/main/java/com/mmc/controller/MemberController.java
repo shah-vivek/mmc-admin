@@ -28,7 +28,7 @@ public class MemberController {
 
     @RequestMapping(value = "/add",
                     method = RequestMethod.POST,
-                    produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+                    produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> addMember(@RequestBody PasswordInfo passwordInfo, HttpServletRequest request,
                                               HttpServletResponse response) {
 
@@ -56,7 +56,7 @@ public class MemberController {
 
     @RequestMapping(value = "/update",
             method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> updateMember(@RequestBody  MemberInfo mInfo, HttpServletRequest request,
                                             HttpServletResponse response) {
         try {
@@ -81,7 +81,7 @@ public class MemberController {
 
     @RequestMapping(value = "/list",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getAllMembers( HttpServletRequest request,
                                                  HttpServletResponse response) {
 
@@ -99,7 +99,7 @@ public class MemberController {
 
     @RequestMapping(value = "/get",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getMember(@RequestParam("email") String email, HttpServletRequest request,
                                            HttpServletResponse response) {
 
@@ -126,7 +126,7 @@ public class MemberController {
 
     @RequestMapping(value = "/delete",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> deleteMember(@RequestParam("email") String email, HttpServletRequest request,
                                        HttpServletResponse response) {
 
@@ -149,7 +149,7 @@ public class MemberController {
 
     @RequestMapping(value = "/signup",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> signUp(@RequestBody SignUpModel signUpModel, HttpServletRequest request,
                                            HttpServletResponse response) {
 
@@ -177,7 +177,7 @@ public class MemberController {
 
     @RequestMapping(value = "/password",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> signUp(@RequestBody GetPassword getPassword, HttpServletRequest request,
                                            HttpServletResponse response) {
 
@@ -207,7 +207,7 @@ public class MemberController {
     
     @RequestMapping(value = "/verify-pin",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> verifyPinAndEmailCombination(@RequestBody PINInfo pinInfo, HttpServletRequest request,
                                            HttpServletResponse response) {
 
@@ -235,7 +235,7 @@ public class MemberController {
     
     @RequestMapping(value = "/reset-password",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> resetPassword(@RequestBody PasswordResetInfo passwordResetInfo, HttpServletRequest request,
                                            HttpServletResponse response) {
 

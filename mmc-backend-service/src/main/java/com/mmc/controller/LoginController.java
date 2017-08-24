@@ -27,7 +27,7 @@ public class LoginController {
 
     @RequestMapping(value = "/admin",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<LoginResponse> loginAdmin(@RequestBody PasswordInfo passwordInfo, HttpServletRequest request,
                                               HttpServletResponse response) {
 
@@ -49,7 +49,7 @@ public class LoginController {
 
     @RequestMapping(value = "/",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<LoginResponse> login(@RequestBody PasswordInfo passwordInfo, HttpServletRequest request,
                                                HttpServletResponse response) {
 

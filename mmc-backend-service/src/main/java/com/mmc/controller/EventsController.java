@@ -35,7 +35,7 @@ public class EventsController {
 
     @RequestMapping(value = "/add",
             method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> addEvent(@RequestBody Event event, HttpServletRequest request,
                                               HttpServletResponse response) {
 
@@ -57,7 +57,7 @@ public class EventsController {
 
     @RequestMapping(value = "/delete",
             method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> deleteEvent(@RequestParam("eventId") String eventId, HttpServletRequest request,
                                           HttpServletResponse response) {
 
@@ -80,7 +80,7 @@ public class EventsController {
 
     @RequestMapping(value = "/list",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getAllEvents( HttpServletRequest request,
                                             HttpServletResponse response) {
 
@@ -99,7 +99,7 @@ public class EventsController {
 
     @RequestMapping(value = "/get",
             method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> getEvent(@RequestParam("eventId") String eventId, HttpServletRequest request,
                                           HttpServletResponse response) {
 
@@ -118,7 +118,7 @@ public class EventsController {
 
     @RequestMapping(value = "/update",
             method = RequestMethod.PUT,
-            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> updateEvent(@RequestBody Event event, HttpServletRequest request,
                                              HttpServletResponse response) {
 
