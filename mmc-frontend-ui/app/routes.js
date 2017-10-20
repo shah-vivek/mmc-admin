@@ -76,7 +76,10 @@ define([
     'text!./dashboard/appHomePage/appHomePage.add.html',
 
     './dashboard/presidentCorner/PresidentController',
-    'text!./dashboard/presidentCorner/index.html'
+    'text!./dashboard/presidentCorner/index.html',
+
+    './dashboard/mmc/MMCController',
+    'text!./dashboard/mmc/index.html'
 
 ], function (
 	ng,
@@ -154,9 +157,10 @@ define([
     appHomePageAddTemplate,
 
     PresidentController,
-    presidentCornerTemplate
+    presidentCornerTemplate,
 
-
+    MMCController,
+    mmcTemplate
 
 ) {
 	'use strict';
@@ -390,6 +394,11 @@ define([
                 url: '/presidentCorner',
                 template: presidentCornerTemplate,
                 controller: PresidentController
+             }).state('dashboard.mmc',{
+                parent: 'dashboard',
+                url: '/mmc',
+                template: mmcTemplate,
+                controller: MMCController
              });
 
 

@@ -15,6 +15,7 @@ define([
 	'./services/AppHomepageservice',
 	'./services/MembershipService',
 	'./services/PresidentService',
+	'./services/MMCService',
 	'./services/localStorage',
 
 	'./directives/FileModel',
@@ -38,6 +39,7 @@ define([
         'app.appHomePageService',
         'app.membershipTypeService',
         'app.presidentService',
+        'app.mmcService',
         'app.localStorage',
 
         'app.fileModel',
