@@ -73,7 +73,10 @@ define([
     './dashboard/appHomePage/AppHomePageEditController',
     'text!./dashboard/appHomePage/appHomePage.edit.html',
     './dashboard/appHomePage/AppHomePageAddController',
-    'text!./dashboard/appHomePage/appHomePage.add.html'
+    'text!./dashboard/appHomePage/appHomePage.add.html',
+
+    './dashboard/presidentCorner/PresidentController',
+    'text!./dashboard/presidentCorner/index.html'
 
 ], function (
 	ng,
@@ -148,7 +151,10 @@ define([
     AppHomePageEditController,
     appHomePageEditTemplate,
     AppHomePageAddController,
-    appHomePageAddTemplate
+    appHomePageAddTemplate,
+
+    PresidentController,
+    presidentCornerTemplate
 
 
 
@@ -379,6 +385,11 @@ define([
                      }
                  },
                  controller: AppHomePageEditController
+             }).state('dashboard.presidentCorner',{
+                parent: 'dashboard',
+                url: '/presidentCorner',
+                template: presidentCornerTemplate,
+                controller: PresidentController
              });
 
 

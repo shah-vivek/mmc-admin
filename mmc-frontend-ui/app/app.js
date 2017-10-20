@@ -14,6 +14,7 @@ define([
 	'./services/AdvertisementService',
 	'./services/AppHomepageservice',
 	'./services/MembershipService',
+	'./services/PresidentService',
 	'./services/localStorage',
 
 	'./directives/FileModel',
@@ -36,6 +37,7 @@ define([
         'app.advertisementService',
         'app.appHomePageService',
         'app.membershipTypeService',
+        'app.presidentService',
         'app.localStorage',
 
         'app.fileModel',
