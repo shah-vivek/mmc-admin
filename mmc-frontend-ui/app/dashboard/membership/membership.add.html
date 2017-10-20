@@ -1,0 +1,30 @@
+<div class="form">
+    <header class="child-header"><span>Add Membership</span>
+        <span class="btn-back">
+            <span class="icon ion-chevron-left"></span>
+            <a ui-sref="dashboard.membership.list" class="btn btn-primary ">Back</a>
+        </span>
+    </header>
+    <label for="info" class="form-label">Membership  Information</label>
+    <form name="info" id="info">
+        <div class="form-row">
+            <div class="label">Name</div>
+            <div><input type="text" ng-required id="email" name="email" ng-model="membership.name"></div>
+        </div>
+         <div class="form-row">
+            <div class="label">Description</div>
+            <div><textarea type="text"  id="fname" name="fname" ng-model="membership.description"></textarea></div> 
+        </div>
+        <div class="form-row">
+            <div class="label">Duration</div>
+            <div><input type="text"  id="lname" name="lname" ng-model="membership.duration" placeholder="duration in months(numeric only)"></div>
+        </div>
+        <div class="form-row">
+            <div class="label">Cost</div>
+            <div><input type="text"  id="phone" name="phone" ng-model="membership.cost" placeholder="cost in numeric only"></div>
+        </div>
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary btn-save" value="Save" ng-click="add()"/>
+        </div>
+    </form>
+</div>

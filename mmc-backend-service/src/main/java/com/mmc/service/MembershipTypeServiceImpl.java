@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by SGaurav on 09/12/2016.
@@ -19,6 +20,8 @@ public class MembershipTypeServiceImpl {
     private MembershipTypeRepository membershipTypeRepository;
 
     public void add(MembershipType membershipType) throws Exception {
+        String uniqueID = UUID.randomUUID().toString();
+        membershipType.setId(uniqueID);
         membershipTypeRepository.save(new MembershipTypeEntity(membershipType));
     }
 
@@ -26,8 +29,8 @@ public class MembershipTypeServiceImpl {
         membershipTypeRepository.save(new MembershipTypeEntity(membershipType));
     }
 
-    public void delete(MembershipType membershipType) throws Exception {
-        membershipTypeRepository.delete(new MembershipTypeEntity(membershipType));
+    public void delete(String  membershipId) throws Exception {
+        membershipTypeRepository.delete(membershipId);
     }
 
     public List<MembershipType> list() throws Exception {
@@ -40,5 +43,10 @@ public class MembershipTypeServiceImpl {
         }
 
         return membershipTypeList;
+    }
+
+    public MembershipType get(String membershipTypeId) throws Exception {
+        MembershipTypeEntity membershipTypeEntity = membershipTypeRepository.findOne(membershipTypeId);
+        return new MembershipType(membershipTypeEntity);
     }
 }

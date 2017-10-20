@@ -1,0 +1,15 @@
+<div class="list">
+    <header class="child-header">Memberships</header>
+    <header class="list-header1">
+        <a class="btn btn-primary icon ion-plus-circled" ui-sref="dashboard.membership.add">Add</a>
+        <div class="search-tab"><input type="search" ng-model="search" placeholder="search by text"></div>
+    </header>
+    <section class="list-container">
+        <div class="list-row row" ng-repeat="membership in memberships | filter:search">
+            <div class="col col-4" ng-bind-html="membership.name | highlight:search"></div>
+            <div class="col col-1 last-col">
+                <a class="icon ion-edit" ui-sref="dashboard.membership.edit({ id : membership.id })">edit</a><a class="icon ion-trash-b" ng-click="delete(membership)">delete</a>
+            </div>
+        </div>
+    </section>
+</div>

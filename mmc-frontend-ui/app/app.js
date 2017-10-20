@@ -13,6 +13,7 @@ define([
 	'./services/TicketService',
 	'./services/AdvertisementService',
 	'./services/AppHomepageservice',
+	'./services/MembershipService',
 	'./services/localStorage',
 
 	'./directives/FileModel',
@@ -34,6 +35,7 @@ define([
         'app.ticketService',
         'app.advertisementService',
         'app.appHomePageService',
+        'app.membershipTypeService',
         'app.localStorage',
 
         'app.fileModel',

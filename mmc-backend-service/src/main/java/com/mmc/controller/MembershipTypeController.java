@@ -25,7 +25,7 @@ public class MembershipTypeController {
     @Autowired
     private MembershipTypeServiceImpl membershipTypeService;
 
-    @RequestMapping(value = "",
+    @RequestMapping(value = "/add",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<Response> add(@RequestBody MembershipType membershipType, HttpServletRequest request,
@@ -45,14 +45,15 @@ public class MembershipTypeController {
         }
     }
 
-    @RequestMapping(value = "",
-            method = RequestMethod.DELETE,
+
+    @RequestMapping(value = "/update",
+            method = RequestMethod.PUT,
             produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
-    public ResponseEntity<Response> delete(@RequestBody MembershipType membershipType, HttpServletRequest request,
+    public ResponseEntity<Response> update(@RequestBody MembershipType membershipType, HttpServletRequest request,
                                         HttpServletResponse response) {
         Response res = new Response();
         try {
-            membershipTypeService.delete(membershipType);
+            membershipTypeService.update(membershipType);
             res.setStatus("SUCCESS");
             res.setStatusCode("S-200");
             res.setStatusMsg("Added successfully!");
@@ -65,7 +66,27 @@ public class MembershipTypeController {
         }
     }
 
-    @RequestMapping(value = "",
+    @RequestMapping(value = "/delete",
+            method = RequestMethod.DELETE,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
+    public ResponseEntity<Response> delete(@RequestParam("membershipTypeId") String membershipTypeId, HttpServletRequest request,
+                                        HttpServletResponse response) {
+        Response res = new Response();
+        try {
+            membershipTypeService.delete(membershipTypeId);
+            res.setStatus("SUCCESS");
+            res.setStatusCode("S-200");
+            res.setStatusMsg("Deleted successfully!");
+            return new ResponseEntity<Response>(res, HttpStatus.OK);
+        }catch (Exception e){
+            res.setStatus("ERROR");
+            res.setStatusCode("E-200");
+            res.setStatusMsg(e.getMessage());
+            return new ResponseEntity<Response>(res, HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(value = "/list",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public ResponseEntity<?> delete( HttpServletRequest request,
@@ -79,6 +100,27 @@ public class MembershipTypeController {
             res.setStatusMsg(e.getMessage());
             return new ResponseEntity<Response>(res, HttpStatus.OK);
         }
+    }
+
+
+    @RequestMapping(value = "/get",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
+    public ResponseEntity<?> getMembershipType(@RequestParam("membershipTypeId") String membershipTypeId, HttpServletRequest request,
+                                      HttpServletResponse response) {
+
+
+        try{
+            MembershipType membershipType = membershipTypeService.get(membershipTypeId);
+            return new ResponseEntity<MembershipType>(membershipType, HttpStatus.OK);
+        }catch (Exception e) {
+            Response res = new Response();
+            res.setStatus("ERROR");
+            res.setStatusCode("IE-500-GET");
+            res.setStatusMsg(e.getMessage());
+            return new ResponseEntity<Response>(res, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
 }

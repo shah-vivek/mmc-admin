@@ -10,7 +10,7 @@ define([
 	return eventService.factory( 'eventService', ['$http',  function ( $http ) {
 
 		// Adding a dev url for local, comment out in index.html before deployment!
-		var url = 'http://www.mahamandalchicagomobile.org/mmc_ver_2/events';
+		var url = 'http://localhost:8082/events'; 
 
 		return {
 			list: function (  ) {

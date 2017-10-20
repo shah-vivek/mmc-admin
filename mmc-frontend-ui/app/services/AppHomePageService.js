@@ -10,7 +10,7 @@ define([
 	return advertisementService.factory( 'appHomePageService', ['$http',  function ( $http ) {
 
 		// Adding a dev url for local, comment out in index.html before deployment!
-		var url = 'http://www.mahamandalchicagomobile.org/mmc_ver_2/home_page';
+		var url = 'http://localhost:8082/home_page';
 
 		return {
 			add: function ( event ) {

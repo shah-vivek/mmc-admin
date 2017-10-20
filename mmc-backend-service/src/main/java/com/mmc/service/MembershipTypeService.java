@@ -15,4 +15,6 @@ public interface MembershipTypeService {
     void delete(MembershipType membershipType) throws Exception;
 
     List<MembershipType> list() throws Exception;
+
+    MembershipType get(String membershipTypeId) throws Exception;
 }

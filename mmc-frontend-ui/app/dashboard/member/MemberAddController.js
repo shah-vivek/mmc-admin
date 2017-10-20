@@ -30,7 +30,7 @@ define([
 
                 alert( data.statusMsg );
                 if( data.status == 'SUCCESS'){
-                    $location.path('/dashboard/member/list');
+                    $location.path('/dashboard/membership/list');
                 }
         };
 

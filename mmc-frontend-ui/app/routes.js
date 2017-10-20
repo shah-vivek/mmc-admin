@@ -48,14 +48,14 @@ define([
     './dashboard/album/AlbumAddController',
     'text!./dashboard/album/album.add.html',
 
-    './dashboard/tickets/TicketController',
-    'text!./dashboard/tickets/index.html',
-    './dashboard/tickets/TicketListController',
-    'text!./dashboard/tickets/ticket.list.html',
-    './dashboard/tickets/TicketEditController',
-    'text!./dashboard/tickets/ticket.edit.html',
-    './dashboard/tickets/TicketAddController',
-    'text!./dashboard/tickets/ticket.add.html',
+    './dashboard/membership/MembershipController',
+    'text!./dashboard/membership/index.html',
+    './dashboard/membership/MembershipListController',
+    'text!./dashboard/membership/membership.list.html',
+    './dashboard/membership/MembershipEditController',
+    'text!./dashboard/membership/membership.edit.html',
+    './dashboard/membership/MembershipAddController',
+    'text!./dashboard/membership/membership.add.html',
 
     './dashboard/advertisement/AdvertisementController',
     'text!./dashboard/advertisement/index.html',
@@ -122,14 +122,14 @@ define([
 	AlbumAddController,
 	albumAdd,
 
-	TicketController,
-	ticketTemplate,
-	TicketListController,
-	ticketList,
-	TicketEditController,
-	ticketEdit,
-	TicketAddController,
-	ticketAdd,
+	MembershipController,
+	membershipTemplate,
+	MembershipListController,
+	membershipList,
+	MembershipEditController,
+	membershipEdit,
+	MembershipAddController,
+	membershipAdd,
 
 
     AdvertisementController,
@@ -290,36 +290,36 @@ define([
                 },
                 controller: AlbumEditController
             })
-            .state('dashboard.ticket',{
+            .state('dashboard.membership',{
                 parent: 'dashboard',
-                url: '/ticket',
-                template: ticketTemplate,
-                controller: TicketController,
+                url: '/membership',
+                template: membershipTemplate,
+                controller: MembershipController,
                 abstract: true
             })
-            .state('dashboard.ticket.list',{
-                parent: 'dashboard.ticket',
+            .state('dashboard.membership.list',{
+                parent: 'dashboard.membership',
                 url: '/list',
-                template: ticketList,
-                controller: TicketListController
+                template: membershipList,
+                controller: MembershipListController
             })
-            .state('dashboard.ticket.add',{
-                parent: 'dashboard.ticket',
+            .state('dashboard.membership.add',{
+                parent: 'dashboard.membership',
                 url: '/add',
-                template: ticketAdd,
-                controller: TicketAddController
+                template: membershipAdd,
+                controller: MembershipAddController
             })
-            .state('dashboard.ticket.edit',{
-                parent: 'dashboard.ticket',
-                url: '/edit/:ticketId',
-                template: ticketEdit,
+            .state('dashboard.membership.edit',{
+                parent: 'dashboard.membership',
+                url: '/edit/:membershipId',
+                template: membershipEdit,
                 params: {
                     id: {
                         value: null,
                         squash: true
                     }
                 },
-                controller: TicketEditController
+                controller: MembershipEditController
             })
             .state('dashboard.ad',{
                  parent: 'dashboard',
