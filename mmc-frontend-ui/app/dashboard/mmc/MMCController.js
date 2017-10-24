@@ -10,7 +10,7 @@ define([
 		var getSuccess = function(data) {
 			$scope.mmc = data;
 			$scope.mmcClone = ng.copy($scope.mmc);
-			if( $scope.mmc.content != null ) {
+			if( $scope.mmc.content !== null ) {
 				$scope.isDataPresent = true;
 			}
 		};
