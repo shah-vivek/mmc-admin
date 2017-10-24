@@ -10,7 +10,7 @@ define([
 		var getSuccess = function(data) {
 			$scope.president = data;
 			$scope.presidentClone = ng.copy($scope.president);
-			if( $scope.president.content != null ) {
+			if( $scope.president.content !== null ) {
 				$scope.isDataPresent = true;
 			}
 		};
