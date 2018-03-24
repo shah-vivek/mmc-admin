@@ -57,15 +57,6 @@ define([
     './dashboard/membership/MembershipAddController',
     'text!./dashboard/membership/membership.add.html',
 
-    './dashboard/advertisement/AdvertisementController',
-    'text!./dashboard/advertisement/index.html',
-    './dashboard/advertisement/AdvertisementListController',
-    'text!./dashboard/advertisement/advertisement.list.html',
-    './dashboard/advertisement/AdvertisementEditController',
-    'text!./dashboard/advertisement/advertisement.edit.html',
-    './dashboard/advertisement/AdvertisementAddController',
-    'text!./dashboard/advertisement/advertisement.add.html',
-
     './dashboard/appHomePage/AppHomePageController',
     'text!./dashboard/appHomePage/index.html',
     './dashboard/appHomePage/AppHomePageListController',
@@ -136,16 +127,6 @@ define([
 	membershipEdit,
 	MembershipAddController,
 	membershipAdd,
-
-
-    AdvertisementController,
-	advertisementTemplate,
-	AdvertisementListController,
-	advertisementList,
-	AdvertisementEditController,
-	advertisementEdit,
-	AdvertisementAddController,
-	advertisementAdd,
 
     AppHomePageController,
     appHomePageTemplate,
@@ -331,37 +312,6 @@ define([
                 },
                 controller: MembershipEditController
             })
-            .state('dashboard.ad',{
-                 parent: 'dashboard',
-                 url: '/ad',
-                 template: advertisementTemplate,
-                 controller: AdvertisementController,
-                 abstract: true
-             })
-             .state('dashboard.ad.list',{
-                 parent: 'dashboard.ad',
-                 url: '/list',
-                 template: advertisementList,
-                 controller: AdvertisementListController
-             })
-             .state('dashboard.ad.add',{
-                 parent: 'dashboard.ad',
-                 url: '/add',
-                 template: advertisementAdd,
-                 controller: AdvertisementAddController
-             })
-             .state('dashboard.ad.edit',{
-                 parent: 'dashboard.ad',
-                 url: '/edit/:id',
-                 template: advertisementEdit,
-                 params: {
-                     id: {
-                         value: null,
-                         squash: true
-                     }
-                 },
-                 controller: AdvertisementEditController
-             })
              .state('dashboard.appHomePage',{
                  parent: 'dashboard',
                  url: '/appHomePage',

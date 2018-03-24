@@ -33,7 +33,7 @@ define([
 		};
 
 		var addSuccess = function(data) {
-
+			alert(data.statusMsg);
 		};
 
 		var addError = function(data) {

@@ -1,7 +1,9 @@
 {
   "name": "flight-only",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bower": "^1.8.2"
+  },
   "devDependencies": {
     "connect-livereload": "^0.5.4",
     "connect-modrewrite": "^0.9.0",
